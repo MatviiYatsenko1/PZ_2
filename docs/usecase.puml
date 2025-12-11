@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+actor "Учень" as Student
+actor "Тренер" as Coach
+actor "Адміністратор" as Admin
+
+rectangle "Система Школи Танців" {
+  usecase "Перегляд відеоуроку" as UC1
+  usecase "Надсилання дом. завдання (відео)" as UC2
+  usecase "Надання відгуку з таймкодами" as UC3
+  usecase "Управління розкладом" as UC4
+  usecase "Бронювання репетиції" as UC5
+}
+
+' Зв'язки
+Student --> UC1
+Student --> UC2
+Student --> UC5
+
+Coach --> UC3
+' Тренер має переглянути домашку, щоб дати відгук
+UC3 .> UC2 : <<include>>
+
+Admin --> UC4
+@enduml

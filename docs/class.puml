@@ -1,0 +1,58 @@
+classDiagram
+    class Person {
+        <<abstract>>
+        - String name
+        - int age
+        + Person(String name, int age)
+        + getInfo() String
+    }
+
+    class Student {
+        - int studentId
+        + Student(String name, int age, int studentId)
+        + watchVideoLesson()
+        + sendHomeworkVideo()
+        + final confirmParticipation()
+    }
+
+    class Trainer {
+        - String specialization
+        + Trainer(String name, int age, String specialization)
+        + giveFeedback()
+    }
+
+    class Administrator {
+        - String role
+        + Administrator(String name, int age, String role)
+        + openSchedule()
+        + manageBooking()
+    }
+
+    class IVideoFeedback {
+        <<interface>>
+        + giveFeedback(video, timeStamp, comment)
+    }
+
+    class VideoLesson {
+        - String title
+        + VideoLesson(String title)
+        + play()
+    }
+
+    class HomeworkVideo {
+        - String filePath
+        + HomeworkVideo(String filePath)
+        + upload()
+    }
+
+    %% Зв'язки
+    Person <|-- Student : Ієрархія
+    Person <|-- Trainer : Ієрархія
+    Person <|-- Administrator : Ієрархія
+
+    Trainer ..|> IVideoFeedback : Імплементація
+    Trainer --> HomeworkVideo : Залежність
+    Student --> VideoLesson : Залежність
+
+    Student o-- HomeworkVideo : Агрегація
+    Administrator *-- VideoLesson : Композиція
