@@ -48,7 +48,6 @@ public class Main {
         student1.confirmParticipation();
         System.out.println();
         
-        // КОМПОЗИЦІЯ: Administrator управляє розкладом
         System.out.println("--- SCENARIO 5: MANAGING SCHEDULE ---");
         admin.openSchedule();
         System.out.println();
