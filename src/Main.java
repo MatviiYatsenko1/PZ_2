@@ -66,6 +66,34 @@ public class Main {
         trainer.giveFeedback(homework2, 30, "Good progress! Continue working on body position.");
         System.out.println();
         
+        // КОМПОЗИЦІЯ: Administrator містить VideoLesson
+        System.out.println("--- SCENARIO 7: COMPOSITION - ADMINISTRATOR MANAGES VIDEO LESSONS ---");
+        VideoLesson adminLesson1 = new VideoLesson("Advanced Latin Techniques");
+        VideoLesson adminLesson2 = new VideoLesson("Championship Standard");
+        VideoLesson adminLesson3 = new VideoLesson("Beginner Waltz");
+        
+        admin.addVideoLesson(adminLesson1);
+        admin.addVideoLesson(adminLesson2);
+        admin.addVideoLesson(adminLesson3);
+        System.out.println();
+        
+        admin.playAllVideoLessons();
+        System.out.println();
+        
+        // АГРЕГАЦІЯ: Student має HomeworkVideo
+        System.out.println("--- SCENARIO 8: AGGREGATION - STUDENT HAS HOMEWORK VIDEOS ---");
+        HomeworkVideo hw1 = new HomeworkVideo("homework_maria_latin_01.mp4");
+        HomeworkVideo hw2 = new HomeworkVideo("homework_maria_waltz_01.mp4");
+        HomeworkVideo hw3 = new HomeworkVideo("homework_maria_quickstep_01.mp4");
+        
+        student1.addHomeworkVideo(hw1);
+        student1.addHomeworkVideo(hw2);
+        student1.addHomeworkVideo(hw3);
+        System.out.println();
+        
+        student1.uploadAllHomeworkVideos();
+        System.out.println();
+        
         System.out.println("=== END OF DEMONSTRATION ===");
     }
 }
